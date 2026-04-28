@@ -3,14 +3,15 @@
 
 int main(int argc, char *argv[]){
 
-    for(int i = 1; i <= argc; i++){
-        for(int j = 1; j <= argc-i; j++){
-            if(strcmp(argv[j], argv[j+1]) > 0){
+    for(int i = 1; i<argc; i++){
+        for(int j = 1; j <argc - i; j++){
+            if(strcmp(*(argv+j), *(argv + j + 1)) > 0){
                 char *tmp = *(argv+j);
-                *(argv+j) = *(argv+1+j);
-                *(argv+1+j) = tmp;
+                *(argv+j) = *(argv + j + 1);
+                *(argv + j + 1) = tmp;
             }
         }
+        
     }
 
     for(int i = 1; i < argc; i++){
